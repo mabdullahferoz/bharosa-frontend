@@ -1,5 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from "react";
-import type { Trust } from "./types";
+import { BadgeCheck, IdCard, ShieldAlert, ShieldCheck } from "lucide-react";
+import type { Endorsement, Trust } from "./types";
 import { dateLocale, enumLabel, isUrdu, msg, t } from "./i18n";
 
 // ---- Formatting -------------------------------------------------------------
@@ -163,22 +164,9 @@ export function PageHeader({ title, subtitle, action }: { title: string; subtitl
 }
 
 export function Avatar({ name, size = 44 }: { name: string; size?: number }) {
-  const initials = name
-    .split(/\s+/)
-    .filter((w) => /^[A-Za-z]/.test(w))
-    .slice(0, 2)
-    .map((w) => w[0])
-    .join("")
-    .toUpperCase();
-  let hash = 0;
-  for (const c of name) hash = (hash * 31 + c.charCodeAt(0)) % 360;
   return (
-    <span
-      className="avatar"
-      style={{ width: size, height: size, fontSize: size * 0.38, background: `hsl(${hash} 45% 88%)`, color: `hsl(${hash} 50% 28%)` }}
-      aria-hidden
-    >
-      {initials || "?"}
+    <span className="avatar" style={{ width: size, height: size, fontSize: size * 0.36, background: faceColor(name), color: "#fff" }} aria-hidden>
+      {initialsOf(name)}
     </span>
   );
 }
@@ -229,72 +217,108 @@ export function Stars({ value }: { value: number | null }) {
   );
 }
 
-const Icon = {
-  shield: (
-    <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden>
-      <path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3Zm-1.2 14.2-3.5-3.5 1.4-1.4 2.1 2.1 4.8-4.8 1.4 1.4-6.2 6.2Z" />
-    </svg>
-  ),
-  card: (
-    <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden>
-      <path fill="currentColor" d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm2 4v2h6V9H5Zm0 4v2h4v-2H5Zm10-4a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-3 7h6c0-1.7-1.3-2.5-3-2.5S12 14.3 12 16Z" />
-    </svg>
-  ),
-  star: (
-    <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden>
-      <path fill="currentColor" d="m12 17.3-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7z" />
-    </svg>
-  ),
-  home: (
-    <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden>
-      <path fill="currentColor" d="M12 3 2 11h3v9h5v-6h4v6h5v-9h3L12 3Z" />
-    </svg>
-  ),
-  alert: (
-    <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden>
-      <path fill="currentColor" d="M1 21h22L12 2 1 21Zm12-3h-2v-2h2v2Zm0-4h-2v-4h2v4Z" />
-    </svg>
-  ),
-};
-
-/** The trust signals households see on a worker. Order = strongest first. */
+/**
+ * The trust signals households see on a worker, strongest first. Family endorsements are not a
+ * badge: they show as stacked faces (EndorsementStack), LinkedIn-style.
+ */
 export function TrustBadges({ trust, compact = false }: { trust: Trust; compact?: boolean }) {
   const items: ReactNode[] = [];
   if (trust.policeVerified)
     items.push(
       <span key="v" className="badge badge-verified" title={t("Police verification completed by the Bharosa team")}>
-        {Icon.shield} {t("Police verified")}
+        <ShieldCheck aria-hidden /> {t("Police verified")}
       </span>,
     );
   if (trust.badgeSuspended && trust.verificationStatus === "VERIFIED")
     items.push(
       <span key="s" className="badge badge-suspended" title={t("Verified badge suspended after a complaint review")}>
-        {Icon.alert} {t("Badge suspended")}
+        <ShieldAlert aria-hidden /> {t("Badge suspended")}
       </span>,
     );
   if (trust.cnicInCustody)
     items.push(
       <span key="c" className="badge badge-cnic" title={t("Original CNIC is held safely by the Bharosa team")}>
-        {Icon.card} {t("CNIC held by team")}
+        <IdCard aria-hidden /> {t("CNIC held by team")}
       </span>,
     );
   if (trust.platformEndorsed)
     items.push(
       <span key="p" className="badge badge-endorsed" title={t("Personally known to and endorsed by the Bharosa team")}>
-        {Icon.star} {t("Team endorsed")}
-      </span>,
-    );
-  if (trust.householdEndorsements > 0)
-    items.push(
-      <span key="h" className="badge badge-family" title={t("Families who employed this worker for over a month vouched for them")}>
-        {Icon.home}{" "}
-        {trust.householdEndorsements === 1
-          ? t("1 family vouches")
-          : t("{n} families vouch", { n: trust.householdEndorsements })}
+        <BadgeCheck aria-hidden /> {t("Team endorsed")}
       </span>,
     );
   if (!items.length && !compact) items.push(<span key="n" className="badge badge-none">{t("New, not yet verified")}</span>);
-  return <div className="badges">{items}</div>;
+  return items.length ? <div className="badges">{items}</div> : null;
+}
+
+// Deep, white-text-safe colours for initials faces (all pass 4.5:1 with white).
+const FACE_COLORS = ["#9a3412", "#1d4ed8", "#7e22ce", "#0f766e", "#be123c", "#4d7c0f", "#a16207", "#0e7490"];
+export function faceColor(name: string) {
+  let hash = 0;
+  for (const c of name) hash = (hash * 31 + c.charCodeAt(0)) >>> 0;
+  return FACE_COLORS[hash % FACE_COLORS.length];
+}
+export const initialsOf = (name: string) =>
+  name
+    .replace(/&/g, " ")
+    .split(/\s+/)
+    .filter((w) => /^[A-Za-z]/.test(w))
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join("")
+    .toUpperCase() || "?";
+
+/**
+ * LinkedIn-style endorsements: the endorsers' faces stacked in small circles, then
+ * "Endorsed by Sana Malik and 3 other families". The team's endorsement shows as a green "B".
+ */
+export function EndorsementStack({
+  endorsements,
+  max = 4,
+  large = false,
+}: {
+  endorsements: Pick<Endorsement, "id" | "type" | "trustworthy" | "endorser">[];
+  max?: number;
+  large?: boolean;
+}) {
+  const valid = endorsements.filter((e) => e.trustworthy);
+  const team = valid.some((e) => e.type === "PLATFORM");
+  const families = valid.filter((e) => e.type === "HOUSEHOLD");
+  if (!valid.length) return <div className="endorse">{t("No endorsements yet")}</div>;
+
+  const faces = [...(team ? [{ key: "team", team: true, name: "Bharosa" }] : []), ...families.map((e) => ({ key: e.id, team: false, name: e.endorser.name }))];
+  const shown = faces.length > max ? faces.slice(0, max - 1) : faces;
+  const more = faces.length - shown.length;
+  const lead = families[0]?.endorser.name;
+  const others = families.length - 1;
+
+  // Whole-sentence templates so each language can order the names naturally.
+  let template: string;
+  if (!families.length) template = t("Endorsed by {team}");
+  else if (!team && others === 0) template = t("Endorsed by {name}");
+  else if (!team) template = others === 1 ? t("Endorsed by {name} and 1 other family") : t("Endorsed by {name} and {n} other families", { n: others });
+  else if (others === 0) template = t("Endorsed by {team} and {name}");
+  else template = others === 1 ? t("Endorsed by {name}, {team} and 1 other family") : t("Endorsed by {name}, {team} and {n} other families", { n: others });
+  const slots: Record<string, ReactNode> = { name: <strong>{lead}</strong>, team: <strong>{t("the Bharosa team")}</strong> };
+  const text = template.split(/\{(name|team)\}/).map((part, i) => (i % 2 ? <span key={i}>{slots[part]}</span> : part));
+
+  return (
+    <div className="endorse">
+      <span className={`face-stack${large ? " lg" : ""}`} aria-hidden>
+        {shown.map((f) =>
+          f.team ? (
+            <span key={f.key} className="face face-team" title={t("the Bharosa team")}>B</span>
+          ) : (
+            <span key={f.key} className="face" style={{ background: faceColor(f.name) }} title={f.name}>
+              {initialsOf(f.name)}
+            </span>
+          ),
+        )}
+        {more > 0 && <span className="face face-more">+{more}</span>}
+      </span>
+      <span>{text}</span>
+    </div>
+  );
 }
 
 // ---- Overlays & forms -------------------------------------------------------

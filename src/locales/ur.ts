@@ -472,6 +472,27 @@ export const UR: Record<string, string> = {
   "This is below the legal minimum wage for full-time work (Rs 1,424 per day).":
     "یہ کل وقتی کام کی قانونی کم از کم اجرت سے کم ہے (1,424 روپے روزانہ)۔",
   "No active staff member with this code": "اس کوڈ کا کوئی اسٹاف موجود نہیں",
+
+  // ---- Redesign: landing and endorsements ----
+  "Home help you can trust.": "گھریلو مدد جس پر آپ بھروسا کر سکیں۔",
+  "Work that respects you.": "ایسا کام جس میں آپ کی عزت ہو۔",
+  "Police verified by our team": "ہماری ٹیم پولیس سے تصدیق کرواتی ہے",
+  "Endorsed by real families": "اصل گھرانوں کی سفارش",
+  "English and Urdu": "انگریزی اور اردو",
+  "Example worker profiles": "کارکنوں کی پروفائل کی مثالیں",
+  "Example profiles": "پروفائل کی مثالیں",
+  "For workers: joining is free.": "کارکنوں کے لیے: شمولیت مفت ہے۔",
+  "Get verified once, build your reputation with every family, and get offers from good homes in your city.":
+    "ایک بار تصدیق کروائیں، ہر گھرانے کے ساتھ اپنی ساکھ بنائیں، اور اپنے شہر کے اچھے گھروں سے پیشکشیں پائیں۔",
+  "No endorsements yet": "ابھی کوئی سفارش نہیں",
+  "the Bharosa team": "بھروسا ٹیم",
+  "Endorsed by {team}": "{team} کی سفارش",
+  "Endorsed by {name}": "{name} کی سفارش",
+  "Endorsed by {name} and 1 other family": "{name} اور 1 اور گھرانے کی سفارش",
+  "Endorsed by {name} and {n} other families": "{name} اور {n} دیگر گھرانوں کی سفارش",
+  "Endorsed by {team} and {name}": "{team} اور {name} کی سفارش",
+  "Endorsed by {name}, {team} and 1 other family": "{name}، {team} اور 1 اور گھرانے کی سفارش",
+  "Endorsed by {name}, {team} and {n} other families": "{name}، {team} اور {n} دیگر گھرانوں کی سفارش",
 };
 
 /** API enum values and city names. */

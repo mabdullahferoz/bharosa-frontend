@@ -4,7 +4,7 @@ import { api } from "../../api";
 import { useAuth } from "../../auth";
 import { isUrdu, msg, t } from "../../i18n";
 import type { Me } from "../../types";
-import { categoryLabel, Field, formatDate, humanize, PageHeader, Select, TrustBadges, useAction } from "../../ui";
+import { categoryLabel, EndorsementStack, Field, formatDate, humanize, PageHeader, Select, TrustBadges, useAction } from "../../ui";
 
 const STEPS: Record<string, { tone: string; text: string }> = {
   NONE: { tone: "callout-accent", text: msg("Not verified yet. Add your CNIC number below, then request verification.") },
@@ -168,6 +168,7 @@ export default function WorkerProfile() {
         <div className="card stack-sm">
           <h3>{t("My trust badges")}</h3>
           {user.trust && <TrustBadges trust={user.trust} />}
+          <EndorsementStack endorsements={user.endorsements ?? []} />
           {user.trust && (
             <p className="small muted">
               {t("{e} family endorsement(s) · {p} placement(s)", { e: user.trust.householdEndorsements, p: user.trust.placements })}

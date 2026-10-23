@@ -4,7 +4,7 @@ import { api } from "../../api";
 import type { Engagement, Job, PublicWorker } from "../../types";
 import ComplaintModal from "../../components/ComplaintModal";
 import {
-  Avatar, categoryLabel, Empty, Field, formatDate, humanize, Loaded, Modal, Money, Stars, TrustBadges, rupees, useAction, useLoad,
+  Avatar, categoryLabel, Empty, EndorsementStack, Field, formatDate, humanize, Loaded, Modal, Money, Stars, TrustBadges, rupees, useAction, useLoad,
 } from "../../ui";
 
 function InviteModal({ worker, onClose }: { worker: PublicWorker; onClose: () => void }) {
@@ -93,6 +93,7 @@ export default function WorkerPublicProfile() {
                   </div>
                 </div>
                 <TrustBadges trust={w.trust} />
+                <EndorsementStack endorsements={w.endorsements} />
                 {w.trust.badgeSuspended && w.trust.verificationStatus === "VERIFIED" && (
                   <div className="callout callout-warn">
                     This worker's Verified badge is suspended after a complaint review by our team.
@@ -134,29 +135,37 @@ export default function WorkerPublicProfile() {
               </div>
 
               <div className="card stack">
-                <h2>Endorsements</h2>
+                <div className="stack-sm">
+                  <h2>Endorsements</h2>
+                  <EndorsementStack endorsements={w.endorsements} large max={6} />
+                </div>
                 {w.endorsements.filter((e) => e.trustworthy).length === 0 ? (
-                  <p className="muted">No endorsements yet. Families are asked to vouch after one month of work.</p>
+                  <p className="muted">Families are asked to vouch after one month of work.</p>
                 ) : (
                   w.endorsements
                     .filter((e) => e.trustworthy)
                     .map((e) => (
-                      <div
-                        key={e.id}
-                        className="stack-sm"
-                        style={{ background: e.type === "PLATFORM" ? "var(--accent-soft)" : "var(--surface-2)", borderRadius: "var(--radius-sm)", padding: "10px 12px" }}
-                      >
-                        <div className="row-between">
-                          <strong>
-                            {e.endorser.name}
-                            {e.endorser.area ? <span className="muted"> · {e.endorser.area}</span> : null}
-                          </strong>
-                          <Stars value={e.rating} />
+                      <div key={e.id} className="row" style={{ alignItems: "flex-start", flexWrap: "nowrap", gap: 12, borderTop: "1px solid var(--line)", paddingTop: 14 }}>
+                        {e.type === "PLATFORM" ? (
+                          <span className="avatar" style={{ width: 40, height: 40, background: "var(--brand)", color: "#fff", fontSize: 15 }} aria-hidden>
+                            B
+                          </span>
+                        ) : (
+                          <Avatar name={e.endorser.name} size={40} />
+                        )}
+                        <div className="stack-sm" style={{ gap: 4, flex: 1, minWidth: 0 }}>
+                          <div className="row-between">
+                            <strong>
+                              {e.endorser.name}
+                              {e.endorser.area ? <span className="muted" style={{ fontWeight: 500 }}> · {e.endorser.area}</span> : null}
+                            </strong>
+                            <Stars value={e.rating} />
+                          </div>
+                          {e.comment && <p dir="auto">“{e.comment}”</p>}
+                          <span className="muted small">
+                            {e.type === "PLATFORM" ? "Endorsed by the Bharosa team" : "Employed this worker for over a month"} · {formatDate(e.createdAt)}
+                          </span>
                         </div>
-                        {e.comment && <p>"{e.comment}"</p>}
-                        <span className="muted small">
-                          {e.type === "PLATFORM" ? "Bharosa team endorsement" : "Employed this worker for over a month"} · {formatDate(e.createdAt)}
-                        </span>
                       </div>
                     ))
                 )}

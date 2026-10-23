@@ -3,6 +3,7 @@ import { api, qs } from "../../api";
 import { useAuth } from "../../auth";
 import type { PublicWorker } from "../../types";
 import WorkerCard from "../../components/WorkerCard";
+import { Search } from "lucide-react";
 import { categoryLabel, Empty, Loaded, PageHeader, Select, useLoad } from "../../ui";
 
 export default function BrowseWorkers() {
@@ -19,17 +20,29 @@ export default function BrowseWorkers() {
 
   return (
     <div>
-      <PageHeader title="Find workers" subtitle="Most trusted first: police verified, then team-endorsed, then families' endorsements." />
-      <div className="filters">
-        <Select value={category} onChange={setCategory} options={meta?.categories ?? []} placeholder="All types of work" labelFn={categoryLabel} />
-        <Select value={city} onChange={setCity} options={meta?.cities ?? []} placeholder="All cities" labelFn={(c) => c} />
-        <input type="search" placeholder="Search name or skills" value={q} onChange={(e) => setQ(e.target.value)} style={{ maxWidth: 240 }} />
-        <button className="chip" aria-pressed={verified} onClick={() => setVerified((v) => !v)}>
-          Police verified
-        </button>
-        <button className="chip" aria-pressed={endorsed} onClick={() => setEndorsed((v) => !v)}>
-          Endorsed
-        </button>
+      <PageHeader title="Find trusted home help" subtitle="Most trusted first: police verified, then endorsed by our team, then by families." />
+      <div className="stack" style={{ gap: 14, marginBottom: 22 }}>
+        <label className="searchbar">
+          <Search size={18} aria-hidden />
+          <input type="search" placeholder="Search by name or skill" aria-label="Search workers" value={q} onChange={(e) => setQ(e.target.value)} />
+          <Select value={city} onChange={setCity} options={meta?.cities ?? []} placeholder="All cities" labelFn={(c) => c} />
+        </label>
+        <div className="chips">
+          <button className="chip" aria-pressed={category === ""} onClick={() => setCategory("")}>
+            All
+          </button>
+          {(meta?.categories ?? []).map((c) => (
+            <button key={c} className="chip" aria-pressed={category === c} onClick={() => setCategory(category === c ? "" : c)}>
+              {categoryLabel(c)}
+            </button>
+          ))}
+          <button className="chip" aria-pressed={verified} onClick={() => setVerified((v) => !v)}>
+            Police verified only
+          </button>
+          <button className="chip" aria-pressed={endorsed} onClick={() => setEndorsed((v) => !v)}>
+            Endorsed only
+          </button>
+        </div>
       </div>
       <Loaded state={state}>
         {(list) =>
