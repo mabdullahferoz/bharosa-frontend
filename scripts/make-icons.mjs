@@ -3,7 +3,7 @@
 import { writeFileSync } from "node:fs";
 import { deflateSync } from "node:zlib";
 
-const GREEN = [14, 107, 80];
+const GREEN = [8, 127, 91];
 const WHITE = [255, 255, 255];
 const GOLD = [242, 169, 0];
 
