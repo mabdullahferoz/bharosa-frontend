@@ -4,6 +4,7 @@ import { hasPerm, useAuth } from "../../auth";
 import type { Approval, Complaint, Permission } from "../../types";
 import { PERMISSION_LABEL, staffLabel, type SweepResult, type Stats } from "./adminTypes";
 import { Loaded, PageHeader, Pill, timeAgo, useAction, useLoad, useToast } from "../../ui";
+import CountUp from "../../components/reactbits/CountUp";
 
 type StatTile = { label: string; value: number | undefined; to?: string; alert?: boolean };
 
@@ -110,7 +111,7 @@ export default function AdminHome() {
                   const body = (
                     <>
                       <div className="stat-value" style={t.alert ? { color: "var(--danger)" } : undefined}>
-                        {t.value ?? "-"}
+                        {typeof t.value === "number" ? <CountUp to={t.value} duration={0.9} separator="," trigger="load" /> : "-"}
                       </div>
                       <div className="stat-label">{t.label}</div>
                     </>

@@ -4,6 +4,7 @@ import { api } from "../../api";
 import { t } from "../../i18n";
 import type { Offer } from "../../types";
 import OfferThread from "../../components/OfferThread";
+import StatusMark from "../../components/reactbits/StatusMark";
 import { categoryLabel, Empty, humanize, Loaded, PageHeader, Tabs, useLoad } from "../../ui";
 
 export default function MyOffers() {
@@ -58,7 +59,10 @@ export default function MyOffers() {
                   )}
                   {o.status === "ACCEPTED" ? (
                     <div className="callout callout-ok">
-                      <span>{t("You're hired! See the family's contact details in My work.")}</span>
+                      <span className="row" style={{ gap: 10, flexWrap: "nowrap" }}>
+                        <StatusMark status="done" size={28} doneColor="#087f5b" />
+                        {t("You're hired! See the family's contact details in My work.")}
+                      </span>
                       <Link to="/worker/work" className="btn btn-sm">
                         {t("My work")}
                       </Link>
