@@ -17,6 +17,9 @@ export const UR: Record<string, string> = {
   "Loading": "لوڈ ہو رہا ہے",
   "Try again": "دوبارہ کوشش کریں",
   "Close": "بند کریں",
+  "Menu": "مینو",
+  "Main menu": "مرکزی مینو",
+  "Close menu": "مینو بند کریں",
   ", ": "، ",
 
   // ---- Time & money ----

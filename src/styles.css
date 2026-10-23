@@ -75,10 +75,6 @@ svg.lucide { flex: none; }
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--ink); font-size: 1.15rem; letter-spacing: -0.02em; white-space: nowrap; flex-shrink: 0; }
 .brand:hover { text-decoration: none; }
 .brand img { width: 32px; height: 32px; border-radius: 9px; }
-.nav { display: flex; gap: 2px; margin-inline-start: 10px; flex: 1; min-width: 0; overflow-x: auto; scrollbar-width: none; }
-.nav a { padding: 7px 14px; border-radius: 999px; color: var(--muted); font-weight: 600; font-size: 0.92rem; white-space: nowrap; }
-.nav a:hover { background: var(--surface-2); color: var(--ink); text-decoration: none; }
-.nav a.active { background: var(--brand-soft); color: var(--brand-dark); }
 .topbar-right { display: flex; align-items: center; gap: 8px; margin-inline-start: auto; flex-shrink: 0; }
 .topbar-name { white-space: nowrap; }
 @media (max-width: 1100px) { .topbar-name { display: none; } }
@@ -90,23 +86,61 @@ svg.lucide { flex: none; }
 }
 .main { flex: 1; width: 100%; max-width: 1200px; margin: 0 auto; padding: 28px 20px 96px; }
 
-.bottom-nav { display: none; }
+/* Large screens: a floating dock at the bottom, every item labelled. */
+.dock {
+  position: fixed; bottom: calc(14px + env(safe-area-inset-bottom)); left: 0; right: 0; z-index: 20;
+  display: flex; justify-content: center; padding: 0 16px; pointer-events: none;
+}
+.dock-inner {
+  pointer-events: auto; display: flex; gap: 2px; padding: 6px; max-width: 100%; overflow-x: auto; scrollbar-width: none;
+  background: rgba(255, 255, 255, 0.92); backdrop-filter: saturate(1.4) blur(12px);
+  border: 1px solid var(--line); border-radius: 22px;
+  box-shadow: 0 12px 32px rgba(17, 24, 39, 0.12), 0 2px 6px rgba(17, 24, 39, 0.06);
+}
+.dock a {
+  flex: none; min-width: 64px; display: flex; flex-direction: column; align-items: center; gap: 3px;
+  padding: 8px 8px 6px; border-radius: 16px; white-space: nowrap;
+  color: var(--muted); font-size: 0.72rem; font-weight: 600; transition: background 0.15s ease, color 0.15s ease;
+}
+.dock-icon { display: grid; place-items: center; transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.dock-icon svg { width: 22px; height: 22px; }
+.dock a:hover { text-decoration: none; color: var(--ink); background: var(--surface-2); }
+.dock a:hover .dock-icon { transform: translateY(-2px) scale(1.12); }
+.dock a.active { color: var(--brand-dark); background: var(--brand-soft); }
+
+/* Small screens: a menu button opens a drawer from the reading-start side. */
+.topbar-inner .menu-btn, .drawer, .drawer-backdrop { display: none; }
+.drawer-head { display: flex; align-items: center; justify-content: space-between; padding: 0 2px 12px; }
+.drawer-user { display: flex; align-items: center; gap: 12px; padding: 12px; margin-bottom: 8px; background: var(--surface-2); border-radius: var(--radius-sm); }
+.drawer-user-name { font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.drawer-nav { display: flex; flex-direction: column; gap: 2px; flex: 1; overflow-y: auto; }
+.drawer-nav a { display: flex; align-items: center; gap: 14px; padding: 12px 14px; border-radius: 12px; color: var(--ink-2); font-weight: 600; }
+.drawer-nav a:hover { text-decoration: none; background: var(--surface-2); }
+.drawer-icon { display: grid; place-items: center; color: var(--muted); }
+.drawer-icon svg { width: 22px; height: 22px; }
+.drawer-nav a.active { background: var(--brand-soft); color: var(--brand-dark); }
+.drawer-nav a.active .drawer-icon { color: inherit; }
+.drawer-foot { border-top: 1px solid var(--line); padding-top: 12px; margin-top: 8px; }
+.btn-block { width: 100%; justify-content: center; }
+
 @media (max-width: 760px) {
-  .nav { display: none; }
-  .bottom-nav {
-    display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 20; overflow-x: auto;
-    background: var(--surface); border-top: 1px solid var(--line);
-    padding: 6px 6px calc(6px + env(safe-area-inset-bottom));
-    box-shadow: 0 -4px 16px rgba(17, 24, 39, 0.05);
+  .dock, .topbar-right .topbar-logout { display: none; }
+  .topbar-inner .menu-btn { display: inline-grid; margin-inline-start: -6px; }
+  .drawer-backdrop {
+    display: block; position: fixed; inset: 0; z-index: 40; background: rgba(17, 24, 39, 0.45);
+    opacity: 0; pointer-events: none; transition: opacity 0.2s ease;
   }
-  .bottom-nav a {
-    flex: 1 0 68px; display: flex; flex-direction: column; align-items: center; gap: 2px; white-space: nowrap;
-    font-size: 0.72rem; font-weight: 600; color: var(--muted); padding: 5px 0; border-radius: 12px;
+  .drawer-backdrop.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    display: flex; flex-direction: column; position: fixed; top: 0; bottom: 0; inset-inline-start: 0; z-index: 41;
+    width: min(84vw, 320px); background: var(--surface); box-shadow: var(--shadow-lg);
+    padding: 14px 12px calc(14px + env(safe-area-inset-bottom));
+    transform: translateX(-100%); visibility: hidden;
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0s linear 0.25s;
   }
-  .bottom-nav a svg { width: 22px; height: 22px; }
-  .bottom-nav a.active { color: var(--brand-dark); background: var(--brand-softer); }
-  .bottom-nav a:hover { text-decoration: none; }
-  .main { padding: 18px 16px 100px; }
+  html[dir="rtl"] .drawer { transform: translateX(100%); }
+  .drawer.open, html[dir="rtl"] .drawer.open { transform: none; visibility: visible; transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1); }
+  .main { padding: 18px 16px 40px; }
   h1 { font-size: 1.45rem; }
   .hide-mobile { display: none !important; }
   .topbar-inner { gap: 8px; padding: 10px 14px; }
@@ -372,7 +406,7 @@ html[dir="rtl"] input, html[dir="rtl"] select, html[dir="rtl"] textarea { line-h
 html[dir="rtl"] input[type="tel"], html[dir="rtl"] input[type="number"], html[dir="rtl"] input[type="password"], html[dir="rtl"] input.ltr { direction: ltr; text-align: right; font-family: "Figtree", system-ui, sans-serif; }
 html[dir="rtl"] .money, html[dir="rtl"] .stat-value { font-family: "Figtree", system-ui, sans-serif; }
 html[dir="rtl"] .money-period { font-family: var(--font); }
-html[dir="rtl"] .bottom-nav a { font-size: 0.78rem; line-height: 1.8; }
+html[dir="rtl"] .dock a { font-size: 0.8rem; line-height: 1.8; }
 html[dir="rtl"] .stars { direction: ltr; display: inline-block; }
 html[dir="rtl"] .searchbar { padding: 6px 16px 6px 6px; }
 

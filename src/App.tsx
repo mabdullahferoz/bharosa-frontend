@@ -3,7 +3,8 @@ import { BrowserRouter, Link, NavLink, Navigate, Route, Routes, useLocation } fr
 import { AuthProvider, hasPerm, homeFor, isStaffRole, useAuth } from "./auth";
 import { api } from "./api";
 import { I18nProvider, LanguageToggle, msg, t } from "./i18n";
-import { Spinner, ToastProvider } from "./ui";
+import { Menu, X } from "lucide-react";
+import { Avatar, Spinner, ToastProvider } from "./ui";
 import type { Me, Permission, Role } from "./types";
 
 import Landing from "./pages/Landing";
@@ -142,23 +143,39 @@ function Shell({ children }: { children: ReactNode }) {
   const { user, logout } = useAuth();
   const unread = useUnreadCount();
   const items = user && !user.mustChangePassword ? navFor(user) : [];
+  const location = useLocation();
+  const [drawer, setDrawer] = useState(false);
+  useEffect(() => setDrawer(false), [location.pathname]);
+  useEffect(() => {
+    if (!drawer) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setDrawer(false);
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [drawer]);
+  const links = (cls: string) =>
+    items.map((n) => (
+      <NavLink key={n.to} to={n.to} end={n.end}>
+        <span className={cls}>{n.icon}</span>
+        <span>{t(n.label)}</span>
+      </NavLink>
+    ));
   return (
     <div className="shell">
       <header className="topbar">
         <div className="topbar-inner">
+          {items.length > 0 && (
+            <button className="icon-btn menu-btn" aria-label={t("Menu")} aria-expanded={drawer} aria-controls="nav-drawer" onClick={() => setDrawer(true)}>
+              <Menu size={22} aria-hidden />
+            </button>
+          )}
           <Link to={user ? homeFor(user.role) : "/"} className="brand">
             <img src="/icon-192.png" alt="" />
             <span className="brand-name">Bharosa</span>
           </Link>
-          {items.length > 0 && (
-            <nav className="nav" aria-label="Main">
-              {items.map((n) => (
-                <NavLink key={n.to} to={n.to} end={n.end}>
-                  {t(n.label)}
-                </NavLink>
-              ))}
-            </nav>
-          )}
           <div className="topbar-right">
             <LanguageToggle />
             {user ? (
@@ -171,7 +188,7 @@ function Shell({ children }: { children: ReactNode }) {
                   {user.name}
                   {user.staff && <span className="staff-code"> · {user.staff.staffCode}</span>}
                 </span>
-                <button className="btn btn-ghost btn-sm" onClick={logout}>
+                <button className="btn btn-ghost btn-sm topbar-logout" onClick={logout}>
                   {t("Log out")}
                 </button>
               </>
@@ -199,15 +216,37 @@ function Shell({ children }: { children: ReactNode }) {
         </div>
       )}
       <main className="main">{children}</main>
-      {items.length > 0 && (
-        <nav className="bottom-nav" aria-label="Main">
-          {items.map((n) => (
-            <NavLink key={n.to} to={n.to} end={n.end}>
-              {n.icon}
-              {t(n.label)}
-            </NavLink>
-          ))}
-        </nav>
+      {user && items.length > 0 && (
+        <>
+          <nav className="dock" aria-label={t("Main menu")}>
+            <div className="dock-inner">{links("dock-icon")}</div>
+          </nav>
+          <div className={`drawer-backdrop${drawer ? " open" : ""}`} onClick={() => setDrawer(false)} aria-hidden />
+          <aside id="nav-drawer" className={`drawer${drawer ? " open" : ""}`} aria-label={t("Main menu")}>
+            <div className="drawer-head">
+              <span className="brand">
+                <img src="/icon-192.png" alt="" />
+                <span>Bharosa</span>
+              </span>
+              <button className="icon-btn" aria-label={t("Close menu")} onClick={() => setDrawer(false)}>
+                <X size={22} aria-hidden />
+              </button>
+            </div>
+            <div className="drawer-user">
+              <Avatar name={user.name} size={40} />
+              <div style={{ minWidth: 0 }}>
+                <div className="drawer-user-name">{user.name}</div>
+                {user.staff && <div className="muted small">{user.staff.staffCode}</div>}
+              </div>
+            </div>
+            <nav className="drawer-nav">{links("drawer-icon")}</nav>
+            <div className="drawer-foot">
+              <button className="btn btn-ghost btn-block" onClick={logout}>
+                {t("Log out")}
+              </button>
+            </div>
+          </aside>
+        </>
       )}
     </div>
   );
