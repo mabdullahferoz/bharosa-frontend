@@ -31,13 +31,13 @@ export const UR: Record<string, string> = {
 
   // ---- Trust badges ----
   "Police verified": "پولیس تصدیق شدہ",
-  "Police verification completed by the Kaam Connect team": "کام کنیکٹ ٹیم نے پولیس سے تصدیق کروائی ہے",
+  "Police verification completed by the Bharosa team": "بھروسا ٹیم نے پولیس سے تصدیق کروائی ہے",
   "Badge suspended": "بیج معطل",
   "Verified badge suspended after a complaint review": "شکایت کے جائزے کے بعد تصدیق کا بیج معطل کیا گیا",
   "CNIC held by team": "شناختی کارڈ ٹیم کے پاس محفوظ",
-  "Original CNIC is held safely by the Kaam Connect team": "اصل شناختی کارڈ کام کنیکٹ ٹیم کے پاس محفوظ ہے",
+  "Original CNIC is held safely by the Bharosa team": "اصل شناختی کارڈ بھروسا ٹیم کے پاس محفوظ ہے",
   "Team endorsed": "ٹیم کی سفارش",
-  "Personally known to and endorsed by the Kaam Connect team": "کام کنیکٹ ٹیم ذاتی طور پر جانتی ہے اور سفارش کرتی ہے",
+  "Personally known to and endorsed by the Bharosa team": "بھروسا ٹیم ذاتی طور پر جانتی ہے اور سفارش کرتی ہے",
   "Families who employed this worker for over a month vouched for them":
     "جن گھرانوں میں یہ ایک مہینے سے زیادہ کام کر چکے ہیں، انہوں نے ان پر اعتماد ظاہر کیا ہے",
   "1 family vouches": "1 گھرانے کا اعتماد",
@@ -47,8 +47,8 @@ export const UR: Record<string, string> = {
   // ---- Landing ----
   "Home help you can *trust*. Work that *respects* you.":
     "گھریلو مدد جس پر آپ *بھروسا* کر سکیں۔ ایسا کام جس میں آپ کی *عزت* ہو۔",
-  "Kaam Connect brings families together with maids, cooks, drivers, gardeners and cleaners. Every worker can be police verified by our team, and families who have employed them vouch for them.":
-    "کام کنیکٹ گھرانوں کو گھریلو ملازمین، باورچیوں، ڈرائیوروں، مالیوں اور صفائی کرنے والوں سے ملاتا ہے۔ ہماری ٹیم ہر کارکن کی پولیس سے تصدیق کروا سکتی ہے، اور جن گھرانوں میں وہ کام کر چکے ہیں وہ ان کی گواہی دیتے ہیں۔",
+  "Bharosa brings families together with maids, cooks, drivers, gardeners and cleaners. Every worker can be police verified by our team, and families who have employed them vouch for them.":
+    "بھروسا گھرانوں کو گھریلو ملازمین، باورچیوں، ڈرائیوروں، مالیوں اور صفائی کرنے والوں سے ملاتا ہے۔ ہماری ٹیم ہر کارکن کی پولیس سے تصدیق کروا سکتی ہے، اور جن گھرانوں میں وہ کام کر چکے ہیں وہ ان کی گواہی دیتے ہیں۔",
   "I need help at home": "مجھے گھر کے کام کے لیے مدد چاہیے",
   "I am looking for work": "مجھے کام چاہیے",
   "Example worker profile": "کارکن کی پروفائل کی مثال",
@@ -217,8 +217,8 @@ export const UR: Record<string, string> = {
   "Request sent to our team": "درخواست ہماری ٹیم کو بھیج دی گئی",
   "Request verification": "تصدیق کی درخواست دیں",
   "Add and save your CNIC number first.": "پہلے اپنا شناختی کارڈ نمبر لکھ کر محفوظ کریں۔",
-  "Verification is free. Our team takes your original CNIC for safekeeping while you work through Kaam Connect. You can ask for it back at any time.":
-    "تصدیق مفت ہے۔ جب تک آپ کام کنیکٹ کے ذریعے کام کرتے ہیں، ہماری ٹیم آپ کا اصل شناختی کارڈ حفاظت سے رکھتی ہے۔ آپ کسی بھی وقت اسے واپس لے سکتے ہیں۔",
+  "Verification is free. Our team takes your original CNIC for safekeeping while you work through Bharosa. You can ask for it back at any time.":
+    "تصدیق مفت ہے۔ جب تک آپ بھروسا کے ذریعے کام کرتے ہیں، ہماری ٹیم آپ کا اصل شناختی کارڈ حفاظت سے رکھتی ہے۔ آپ کسی بھی وقت اسے واپس لے سکتے ہیں۔",
   "Your badge is suspended after a complaint review.": "شکایت کے جائزے کے بعد آپ کا بیج معطل ہے۔",
   "See complaints": "شکایات دیکھیں",
   "Availability shown to families: {a}": "گھرانوں کو دکھایا جانے والا وقت: {a}",
@@ -239,8 +239,8 @@ export const UR: Record<string, string> = {
   "At least 8 characters": "کم از کم 8 حروف",
   "Date of birth": "تاریخِ پیدائش",
   "You must be {n} or older to join.": "شمولیت کے لیے آپ کی عمر کم از کم {n} سال ہونی چاہیے۔",
-  "Sorry, you must be at least {n} years old to work through Kaam Connect.":
-    "معذرت، کام کنیکٹ کے ذریعے کام کرنے کے لیے عمر کم از کم {n} سال ہونی چاہیے۔",
+  "Sorry, you must be at least {n} years old to work through Bharosa.":
+    "معذرت، بھروسا کے ذریعے کام کرنے کے لیے عمر کم از کم {n} سال ہونی چاہیے۔",
   "Joining is free. Never pay anyone to register.": "شمولیت مفت ہے۔ رجسٹریشن کے لیے کبھی کسی کو پیسے نہ دیں۔",
   "If someone asks you for money, call our helpline:": "اگر کوئی آپ سے پیسے مانگے تو ہماری ہیلپ لائن پر کال کریں:",
 
@@ -281,20 +281,20 @@ export const UR: Record<string, string> = {
   "Family has not confirmed": "گھرانے نے ابھی منظور نہیں کیا",
   "Worker confirmed": "کارکن نے منظور کر لیا",
   "Worker has not confirmed": "کارکن نے ابھی منظور نہیں کیا",
-  "Questions or a problem? Call the Kaam Connect helpline:": "کوئی سوال یا مسئلہ ہے؟ کام کنیکٹ ہیلپ لائن پر کال کریں:",
+  "Questions or a problem? Call the Bharosa helpline:": "کوئی سوال یا مسئلہ ہے؟ بھروسا ہیلپ لائن پر کال کریں:",
   "Thank you. You confirmed the terms.": "شکریہ۔ آپ نے شرائط منظور کر لیں۔",
   "I agree to these terms": "میں ان شرائط سے متفق ہوں",
   "Wages are paid at least monthly, within 5 days after the month ends.":
     "تنخواہ کم از کم ہر مہینے دی جائے گی، مہینہ ختم ہونے کے 5 دن کے اندر۔",
   "One paid day of rest every week.": "ہر ہفتے ایک دن کی چھٹی، تنخواہ کے ساتھ۔",
-  "No work by anyone under 15. Workers on Kaam Connect must be 18 or older.":
-    "15 سال سے کم عمر کوئی کام نہیں کرے گا۔ کام کنیکٹ پر کارکن کی عمر کم از کم 18 سال ہونی چاہیے۔",
+  "No work by anyone under 15. Workers on Bharosa must be 18 or older.":
+    "15 سال سے کم عمر کوئی کام نہیں کرے گا۔ بھروسا پر کارکن کی عمر کم از کم 18 سال ہونی چاہیے۔",
   "No forced work, no keeping the worker's documents without consent, no abuse or harassment.":
     "زبردستی کام نہیں، کارکن کی مرضی کے بغیر اس کے کاغذات نہیں رکھے جائیں گے، کوئی بدسلوکی یا ہراسانی نہیں۔",
   "Either side may end the arrangement; final dues are paid within 2 working days.":
     "کوئی بھی فریق کام ختم کر سکتا ہے؛ باقی رقم 2 کام کے دنوں میں ادا کی جائے گی۔",
-  "Problems can be reported in the app or by calling the Kaam Connect helpline.":
-    "کوئی مسئلہ ہو تو ایپ میں بتائیں یا کام کنیکٹ ہیلپ لائن پر کال کریں۔",
+  "Problems can be reported in the app or by calling the Bharosa helpline.":
+    "کوئی مسئلہ ہو تو ایپ میں بتائیں یا بھروسا ہیلپ لائن پر کال کریں۔",
 
   // ---- My work: terms and reporting a family ----
   "Read the terms of this work: wage, hours and day off. Then confirm.":
@@ -303,18 +303,18 @@ export const UR: Record<string, string> = {
   "Your report: {what}": "آپ کی شکایت: {what}",
   "See all my reports": "میری تمام شکایات دیکھیں",
   "Report a problem with this family": "اس گھرانے کے بارے میں شکایت کریں",
-  "Problem with pay, hours or how you are treated? Call the Kaam Connect helpline:":
-    "تنخواہ، اوقات یا سلوک کا مسئلہ ہے؟ کام کنیکٹ ہیلپ لائن پر کال کریں:",
+  "Problem with pay, hours or how you are treated? Call the Bharosa helpline:":
+    "تنخواہ، اوقات یا سلوک کا مسئلہ ہے؟ بھروسا ہیلپ لائن پر کال کریں:",
   "Report a problem with {name}": "{name} کے بارے میں شکایت",
   "Sent. Our team will call you.": "بھیج دیا گیا۔ ہماری ٹیم آپ کو کال کرے گی۔",
-  "This goes to the Kaam Connect team, not to the family. Our team reads every report and will contact you.":
-    "یہ کام کنیکٹ ٹیم کو جائے گا، گھرانے کو نہیں۔ ہماری ٹیم ہر شکایت پڑھتی ہے اور آپ سے رابطہ کرے گی۔",
+  "This goes to the Bharosa team, not to the family. Our team reads every report and will contact you.":
+    "یہ بھروسا ٹیم کو جائے گا، گھرانے کو نہیں۔ ہماری ٹیم ہر شکایت پڑھتی ہے اور آپ سے رابطہ کرے گی۔",
   "What is the problem?": "کیا مسئلہ ہے؟",
   "How serious?": "کتنا سنگین ہے؟",
   "Tell us what happened": "بتائیں کیا ہوا",
   "When, what was said or done. At least 10 letters.": "کب ہوا، کیا کہا یا کیا گیا۔ کم از کم 10 حروف۔",
   "In danger right now? Call the police: 15.": "ابھی خطرے میں ہیں؟ پولیس کو کال کریں: 15۔",
-  "Kaam Connect helpline:": "کام کنیکٹ ہیلپ لائن:",
+  "Bharosa helpline:": "بھروسا ہیلپ لائن:",
   "Send to our team": "ہماری ٹیم کو بھیجیں",
   "Small problem, e.g. late pay by a few days": "چھوٹا مسئلہ، مثلاً تنخواہ چند دن دیر سے ملی",
   "It keeps happening": "بار بار ہو رہا ہے",
@@ -360,27 +360,27 @@ export const UR: Record<string, string> = {
   "Reported": "شکایت بھیج دی",
   "Report this": "اس کی شکایت کریں",
   "I did not agree": "میں نے اجازت نہیں دی تھی",
-  "Report sent to the senior Kaam Connect team.": "شکایت کام کنیکٹ کی سینئر ٹیم کو بھیج دی گئی۔",
+  "Report sent to the senior Bharosa team.": "شکایت بھروسا کی سینئر ٹیم کو بھیج دی گئی۔",
   "Your report goes to the senior team, not to the staff member. Tell us briefly what is wrong.":
     "آپ کی شکایت سینئر ٹیم کو جائے گی، اس اسٹاف کو نہیں۔ مختصر بتائیں کیا غلط ہے۔",
   "What happened?": "کیا ہوا؟",
   "At least 5 letters": "کم از کم 5 حروف",
   "Send report": "شکایت بھیجیں",
   "Check a staff member": "اسٹاف کی تصدیق کریں",
-  "Every Kaam Connect staff member has a code like KC-001. Ask for it, then check it here.":
-    "کام کنیکٹ کے ہر اسٹاف کا ایک کوڈ ہوتا ہے، جیسے KC-001۔ ان سے کوڈ پوچھیں، پھر یہاں چیک کریں۔",
+  "Every Bharosa staff member has a code like BH-001. Ask for it, then check it here.":
+    "بھروسا کے ہر اسٹاف کا ایک کوڈ ہوتا ہے، جیسے BH-001۔ ان سے کوڈ پوچھیں، پھر یہاں چیک کریں۔",
   "Staff code": "اسٹاف کوڈ",
   "Check": "چیک کریں",
-  "Yes, a real Kaam Connect staff member:": "جی ہاں، یہ کام کنیکٹ کا اصلی اسٹاف ہے:",
-  "is not a Kaam Connect staff member. Do not give them money or documents.":
-    "کام کنیکٹ کا اسٹاف نہیں ہے۔ انہیں پیسے یا کاغذات نہ دیں۔",
+  "Yes, a real Bharosa staff member:": "جی ہاں، یہ بھروسا کا اصلی اسٹاف ہے:",
+  "is not a Bharosa staff member. Do not give them money or documents.":
+    "بھروسا کا اسٹاف نہیں ہے۔ انہیں پیسے یا کاغذات نہ دیں۔",
   "Our staff never ask for money. Joining and verification are free.": "ہمارا اسٹاف کبھی پیسے نہیں مانگتا۔ شمولیت اور تصدیق مفت ہیں۔",
   "Report a staff member": "اسٹاف کی شکایت کریں",
   "Asked for money? Rude? Did something you did not agree to? Tell the senior team.":
     "پیسے مانگے؟ بدتمیزی کی؟ آپ کی اجازت کے بغیر کچھ کیا؟ سینئر ٹیم کو بتائیں۔",
-  "For example KC-007. Write what you know.": "مثلاً KC-007۔ جو معلوم ہو وہ لکھیں۔",
+  "For example BH-007. Write what you know.": "مثلاً BH-007۔ جو معلوم ہو وہ لکھیں۔",
   "Staff {code} {name}": "اسٹاف {code} {name}",
-  "Kaam Connect (automatic)": "کام کنیکٹ (خودکار)",
+  "Bharosa (automatic)": "بھروسا (خودکار)",
   "A family endorsed you as trustworthy": "ایک گھرانے نے آپ کو قابلِ بھروسا قرار دیا",
   "Account created": "اکاؤنٹ بنایا گیا",
   "Account created for you": "آپ کے لیے اکاؤنٹ بنایا گیا",
@@ -428,7 +428,7 @@ export const UR: Record<string, string> = {
   "Your report about a family was resolved": "گھرانے کے بارے میں آپ کی شکایت حل ہو گئی",
   "Your report about a family was closed": "گھرانے کے بارے میں آپ کی شکایت بند کر دی گئی",
   "A family gave feedback about you": "ایک گھرانے نے آپ کے بارے میں رائے دی",
-  "Endorsed by the Kaam Connect team": "کام کنیکٹ ٹیم نے سفارش کی",
+  "Endorsed by the Bharosa team": "بھروسا ٹیم نے سفارش کی",
   "Staff member reported": "اسٹاف کی شکایت کی",
   "Your report about a staff member is being investigated": "اسٹاف کے بارے میں آپ کی شکایت کی تحقیق جاری ہے",
   "Your report about a staff member was resolved": "اسٹاف کے بارے میں آپ کی شکایت حل ہو گئی",
@@ -457,9 +457,9 @@ export const UR: Record<string, string> = {
   "We are not holding your CNIC": "آپ کا شناختی کارڈ ہمارے پاس نہیں ہے",
   "You already confirmed these terms": "آپ یہ شرائط پہلے ہی منظور کر چکے ہیں",
   "You can only report a household you worked for": "آپ صرف اسی گھرانے کی شکایت کر سکتے ہیں جہاں آپ نے کام کیا ہو",
-  "Tell us the staff code (e.g. KC-007) or pick the activity entry": "اسٹاف کوڈ لکھیں (مثلاً KC-007) یا سرگرمی میں سے انتخاب کریں",
+  "Tell us the staff code (e.g. BH-007) or pick the activity entry": "اسٹاف کوڈ لکھیں (مثلاً BH-007) یا سرگرمی میں سے انتخاب کریں",
   "Date of birth is required for workers": "کارکنوں کے لیے تاریخِ پیدائش ضروری ہے",
-  "Workers must be at least 18 years old to join Kaam Connect": "کام کنیکٹ میں شامل ہونے کے لیے کارکن کی عمر کم از کم 18 سال ہونی چاہیے",
+  "Workers must be at least 18 years old to join Bharosa": "بھروسا میں شامل ہونے کے لیے کارکن کی عمر کم از کم 18 سال ہونی چاہیے",
   "Date of birth can only be corrected by the support team": "تاریخِ پیدائش صرف ہماری ٹیم درست کر سکتی ہے",
   "Your current password is wrong": "آپ کا موجودہ پاس ورڈ غلط ہے",
   "Choose a new password that is different from the old one": "ایسا نیا پاس ورڈ بنائیں جو پرانے سے مختلف ہو",
@@ -581,7 +581,7 @@ export const UR_NOTIF: Record<string, { title: string; body?: string }> = {
   OFFER_WITHDRAWN: { title: "\"{job}\" کی پیشکش واپس لے لی گئی" },
   ENGAGEMENT_ENDED: { title: "{name} نے کام ختم کر دیا: {job}" },
   ENDORSED_BY_FAMILY: { title: "{name} نے آپ کی سفارش کی ہے" },
-  ENDORSED_BY_TEAM: { title: "کام کنیکٹ ٹیم نے آپ کی سفارش کی ہے" },
+  ENDORSED_BY_TEAM: { title: "بھروسا ٹیم نے آپ کی سفارش کی ہے" },
   VERIFICATION_PENDING: { title: "آپ کی تصدیق کی درخواست زیرِ غور ہے" },
   VERIFICATION_IN_PROGRESS: { title: "آپ کی پولیس تصدیق جاری ہے" },
   VERIFICATION_VERIFIED: { title: "آپ کی پولیس تصدیق ہو گئی! اب آپ کی پروفائل پر تصدیق کا بیج ہے" },

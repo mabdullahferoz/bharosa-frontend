@@ -296,7 +296,7 @@ export default function AdminAssist() {
                 >
                   Report a problem
                 </button>
-                {d.engagements.length === 0 && <span className="small muted">Only possible for a family {first} has worked for through Kaam Connect.</span>}
+                {d.engagements.length === 0 && <span className="small muted">Only possible for a family {first} has worked for through Bharosa.</span>}
               </section>
             </div>
 
@@ -646,7 +646,7 @@ function GrievanceModal({
       name={name}
       busy={busy}
       confirmLabel="Send report"
-      readOut={<>I will report this problem to the Kaam Connect team. The team will look into it and contact you. Is that what you want?</>}
+      readOut={<>I will report this problem to the Bharosa team. The team will look into it and contact you. Is that what you want?</>}
       onSubmit={async (consent) => {
         const r = await run(() => api.post(`/assist/workers/${workerId}/grievances`, { ...f, description: f.description.trim(), consent }));
         if (!r) return false;
@@ -815,7 +815,7 @@ function VerifyModal({ workerId, name, onClose, onDone }: { workerId: string; na
       confirmLabel="Request verification"
       readOut={
         <>
-          The Kaam Connect team will check your record with the police. It is free. You will need to show your original CNIC. Never pay anyone for
+          The Bharosa team will check your record with the police. It is free. You will need to show your original CNIC. Never pay anyone for
           this. Do you want us to start?
         </>
       }

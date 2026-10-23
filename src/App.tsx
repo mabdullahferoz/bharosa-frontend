@@ -148,7 +148,7 @@ function Shell({ children }: { children: ReactNode }) {
         <div className="topbar-inner">
           <Link to={user ? homeFor(user.role) : "/"} className="brand">
             <img src="/icon-192.png" alt="" />
-            <span className="brand-name">Kaam Connect</span>
+            <span className="brand-name">Bharosa</span>
           </Link>
           {items.length > 0 && (
             <nav className="nav" aria-label="Main">

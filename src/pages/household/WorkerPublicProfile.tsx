@@ -155,7 +155,7 @@ export default function WorkerPublicProfile() {
                         </div>
                         {e.comment && <p>"{e.comment}"</p>}
                         <span className="muted small">
-                          {e.type === "PLATFORM" ? "Kaam Connect team endorsement" : "Employed this worker for over a month"} · {formatDate(e.createdAt)}
+                          {e.type === "PLATFORM" ? "Bharosa team endorsement" : "Employed this worker for over a month"} · {formatDate(e.createdAt)}
                         </span>
                       </div>
                     ))

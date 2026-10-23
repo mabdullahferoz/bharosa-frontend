@@ -55,7 +55,7 @@ export default function AdminSignup() {
         <PageHeader title="Account created" subtitle={`${done.name} has been sent an SMS saying you created their account.`} />
         <TempPasswordBox password={done.tempPassword} name={done.name} />
         <div className="callout callout-info small">
-          Tell {done.name.split(" ")[0]}: joining Kaam Connect is free. Nobody from Kaam Connect will ever ask them for money. If someone does, they should
+          Tell {done.name.split(" ")[0]}: joining Bharosa is free. Nobody from Bharosa will ever ask them for money. If someone does, they should
           call {meta?.supportPhone ?? "the helpline"}.
         </div>
         <div className="row">

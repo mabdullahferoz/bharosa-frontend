@@ -70,7 +70,7 @@ export default function Register() {
           {role === "WORKER" && (
             <Field
               label={t("Date of birth")}
-              hint={tooYoung ? t("Sorry, you must be at least {n} years old to work through Kaam Connect.", { n: minAge }) : t("You must be {n} or older to join.", { n: minAge })}
+              hint={tooYoung ? t("Sorry, you must be at least {n} years old to work through Bharosa.", { n: minAge }) : t("You must be {n} or older to join.", { n: minAge })}
             >
               <input className="ltr" type="date" max={latestDob} min="1940-01-01" value={dateOfBirth} onChange={(e) => setDateOfBirth(e.target.value)} required />
             </Field>

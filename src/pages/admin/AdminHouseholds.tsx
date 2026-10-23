@@ -24,7 +24,7 @@ export default function AdminHouseholds() {
     <div className="stack">
       <PageHeader
         title="Households"
-        subtitle="Families on Kaam Connect. Phone numbers are hidden; revealing one is logged and shown to the family."
+        subtitle="Families on Bharosa. Phone numbers are hidden; revealing one is logged and shown to the family."
         action={
           canAssist && (
             <Link className="btn btn-sm" to="/admin/signup?role=HOUSEHOLD">

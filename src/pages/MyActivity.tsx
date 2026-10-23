@@ -53,7 +53,7 @@ const ACTIONS: Record<string, string> = {
   GRIEVANCE_RESOLVED: msg("Your report about a family was resolved"),
   GRIEVANCE_DISMISSED: msg("Your report about a family was closed"),
   ENDORSEMENT_GIVEN: msg("A family gave feedback about you"),
-  PLATFORM_ENDORSED: msg("Endorsed by the Kaam Connect team"),
+  PLATFORM_ENDORSED: msg("Endorsed by the Bharosa team"),
   STAFF_REPORTED: msg("Staff member reported"),
   STAFF_REPORT_INVESTIGATING: msg("Your report about a staff member is being investigated"),
   STAFF_REPORT_RESOLVED: msg("Your report about a staff member was resolved"),
@@ -89,7 +89,7 @@ function who(e: ActivityEntry): string {
     case "USER":
       return e.by.name;
     default:
-      return t("Kaam Connect (automatic)");
+      return t("Bharosa (automatic)");
   }
 }
 
@@ -104,7 +104,7 @@ function DisputeModal({ entry, onClose, onDone }: { entry: ActivityEntry; onClos
           ev.preventDefault();
           const r = await run(
             () => api.post("/me/report-staff", { auditLogId: entry.id, description }),
-            t("Report sent to the senior Kaam Connect team."),
+            t("Report sent to the senior Bharosa team."),
           );
           if (r) {
             onDone();
@@ -154,7 +154,7 @@ function StaffCheck() {
   return (
     <div className="card stack-sm">
       <h3>{t("Check a staff member")}</h3>
-      <p className="small muted">{t("Every Kaam Connect staff member has a code like KC-001. Ask for it, then check it here.")}</p>
+      <p className="small muted">{t("Every Bharosa staff member has a code like BH-001. Ask for it, then check it here.")}</p>
       <form className="row" onSubmit={check}>
         <input
           className="ltr"
@@ -164,7 +164,7 @@ function StaffCheck() {
             setCode(e.target.value);
             setResult(null);
           }}
-          placeholder="KC-001"
+          placeholder="BH-001"
           aria-label={t("Staff code")}
           maxLength={20}
           required
@@ -176,7 +176,7 @@ function StaffCheck() {
       {result?.kind === "ok" && (
         <div className="callout callout-ok small">
           <span>
-            {t("Yes, a real Kaam Connect staff member:")} <strong className="ltr">{result.staffCode}</strong> <strong dir="auto">{result.name}</strong>
+            {t("Yes, a real Bharosa staff member:")} <strong className="ltr">{result.staffCode}</strong> <strong dir="auto">{result.name}</strong>
             {result.title && (
               <>
                 {" "}
@@ -190,7 +190,7 @@ function StaffCheck() {
         <div className="callout callout-error small">
           <span>
             <span className="ltr">{result.code}</span>{" "}
-            {t("is not a Kaam Connect staff member. Do not give them money or documents.")}
+            {t("is not a Bharosa staff member. Do not give them money or documents.")}
           </span>
         </div>
       )}
@@ -215,7 +215,7 @@ function ReportStaffForm() {
         e.preventDefault();
         const r = await run(
           () => api.post("/me/report-staff", { staffCode: staffCode.trim().toUpperCase(), description }),
-          t("Report sent to the senior Kaam Connect team."),
+          t("Report sent to the senior Bharosa team."),
         );
         if (r) {
           setStaffCode("");
@@ -225,8 +225,8 @@ function ReportStaffForm() {
     >
       <h3>{t("Report a staff member")}</h3>
       <p className="small muted">{t("Asked for money? Rude? Did something you did not agree to? Tell the senior team.")}</p>
-      <Field label={t("Staff code")} hint={t("For example KC-007. Write what you know.")}>
-        <input className="ltr" value={staffCode} onChange={(e) => setStaffCode(e.target.value)} placeholder="KC-007" maxLength={20} required />
+      <Field label={t("Staff code")} hint={t("For example BH-007. Write what you know.")}>
+        <input className="ltr" value={staffCode} onChange={(e) => setStaffCode(e.target.value)} placeholder="BH-007" maxLength={20} required />
       </Field>
       <Field label={t("What happened?")}>
         <textarea dir="auto" value={description} onChange={(e) => setDescription(e.target.value)} minLength={5} maxLength={3000} required />
@@ -330,7 +330,7 @@ export default function MyActivity() {
         <ReportStaffForm />
         {meta?.supportPhone && (
           <p className="small muted">
-            {t("Kaam Connect helpline:")}{" "}
+            {t("Bharosa helpline:")}{" "}
             <a className="ltr" href={`tel:${meta.supportPhone}`}>
               {meta.supportPhone}
             </a>

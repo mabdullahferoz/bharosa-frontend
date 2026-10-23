@@ -1,4 +1,4 @@
-// Shapes returned by the Kaam Connect API (see api/src/routes). Kept by hand for now;
+// Shapes returned by the Bharosa API (see api/src/routes). Kept by hand for now;
 // a shared package or OpenAPI codegen can replace this when the mobile app starts.
 
 export type Role = "HOUSEHOLD" | "WORKER" | "ADMIN" | "SUPER_ADMIN";
@@ -98,7 +98,7 @@ export interface HistoryEntry {
   amount: number;
   message: string | null;
   at: string;
-  /** "KC-007 Ayesha" when staff named this price for the person (assisted mode) */
+  /** "BH-007 Ayesha" when staff named this price for the person (assisted mode) */
   viaStaff?: string;
 }
 

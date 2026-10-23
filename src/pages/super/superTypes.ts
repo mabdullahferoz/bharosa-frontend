@@ -176,7 +176,7 @@ export async function downloadAuditCsv(query: string) {
     throw new Error(data?.error || `Export failed (${res.status})`);
   }
   const blob = await res.blob();
-  const name = /filename="([^"]+)"/.exec(res.headers.get("content-disposition") ?? "")?.[1] ?? "kaam-audit.csv";
+  const name = /filename="([^"]+)"/.exec(res.headers.get("content-disposition") ?? "")?.[1] ?? "bharosa-audit.csv";
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;

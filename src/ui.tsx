@@ -262,7 +262,7 @@ export function TrustBadges({ trust, compact = false }: { trust: Trust; compact?
   const items: ReactNode[] = [];
   if (trust.policeVerified)
     items.push(
-      <span key="v" className="badge badge-verified" title={t("Police verification completed by the Kaam Connect team")}>
+      <span key="v" className="badge badge-verified" title={t("Police verification completed by the Bharosa team")}>
         {Icon.shield} {t("Police verified")}
       </span>,
     );
@@ -274,13 +274,13 @@ export function TrustBadges({ trust, compact = false }: { trust: Trust; compact?
     );
   if (trust.cnicInCustody)
     items.push(
-      <span key="c" className="badge badge-cnic" title={t("Original CNIC is held safely by the Kaam Connect team")}>
+      <span key="c" className="badge badge-cnic" title={t("Original CNIC is held safely by the Bharosa team")}>
         {Icon.card} {t("CNIC held by team")}
       </span>,
     );
   if (trust.platformEndorsed)
     items.push(
-      <span key="p" className="badge badge-endorsed" title={t("Personally known to and endorsed by the Kaam Connect team")}>
+      <span key="p" className="badge badge-endorsed" title={t("Personally known to and endorsed by the Bharosa team")}>
         {Icon.star} {t("Team endorsed")}
       </span>,
     );

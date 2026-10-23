@@ -1,6 +1,6 @@
-# Kaam Connect web app (PWA): built with Vite, served by Caddy, which gets HTTPS certificates
+# Bharosa web app (PWA): built with Vite, served by Caddy, which gets HTTPS certificates
 # automatically when SITE_ADDRESS is a real domain. Build from the repository root:
-#   docker build -f web/Dockerfile -t kaam-web .
+#   docker build -f web/Dockerfile -t bharosa-web .
 FROM node:22-alpine AS build
 WORKDIR /app
 COPY package.json package-lock.json ./

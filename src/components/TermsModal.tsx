@@ -9,10 +9,10 @@ import { categoryLabel, formatDate, humanize, Loaded, Modal, Money, useAction, u
 export const TERMS_RULES = [
   msg("Wages are paid at least monthly, within 5 days after the month ends."),
   msg("One paid day of rest every week."),
-  msg("No work by anyone under 15. Workers on Kaam Connect must be 18 or older."),
+  msg("No work by anyone under 15. Workers on Bharosa must be 18 or older."),
   msg("No forced work, no keeping the worker's documents without consent, no abuse or harassment."),
   msg("Either side may end the arrangement; final dues are paid within 2 working days."),
-  msg("Problems can be reported in the app or by calling the Kaam Connect helpline."),
+  msg("Problems can be reported in the app or by calling the Bharosa helpline."),
 ];
 
 /** Written terms of a hire (wage, hours, rest day, rules). Each side confirms once. */
@@ -86,7 +86,7 @@ export default function TermsModal({
               </div>
               {meta?.supportPhone && (
                 <p className="small muted">
-                  {t("Questions or a problem? Call the Kaam Connect helpline:")} <span className="ltr">{meta.supportPhone}</span>
+                  {t("Questions or a problem? Call the Bharosa helpline:")} <span className="ltr">{meta.supportPhone}</span>
                 </p>
               )}
               {!mine && (

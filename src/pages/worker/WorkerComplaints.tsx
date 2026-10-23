@@ -77,7 +77,7 @@ function MyGrievances() {
       </Loaded>
       {meta?.supportPhone && (
         <p className="small muted">
-          {t("Kaam Connect helpline:")}{" "}
+          {t("Bharosa helpline:")}{" "}
           <a className="ltr" href={`tel:${meta.supportPhone}`}>
             {meta.supportPhone}
           </a>

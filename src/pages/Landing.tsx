@@ -15,7 +15,7 @@ export default function Landing() {
           </h1>
           <p className="lead">
             {t(
-              "Kaam Connect brings families together with maids, cooks, drivers, gardeners and cleaners. Every worker can be police verified by our team, and families who have employed them vouch for them.",
+              "Bharosa brings families together with maids, cooks, drivers, gardeners and cleaners. Every worker can be police verified by our team, and families who have employed them vouch for them.",
             )}
           </p>
           <div className="row">

@@ -1,7 +1,7 @@
-// Thin client for the Kaam Connect REST API. The same endpoints serve the future mobile app.
+// Thin client for the Bharosa REST API. The same endpoints serve the future mobile app.
 
 const BASE = (import.meta.env.VITE_API_URL as string | undefined) || "/api";
-const TOKEN_KEY = "kaam.token";
+const TOKEN_KEY = "bharosa.token";
 
 export class ApiError extends Error {
   constructor(public status: number, message: string, public details?: Record<string, string[]>) {

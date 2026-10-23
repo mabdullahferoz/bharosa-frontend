@@ -200,7 +200,7 @@ export default function WorkerProfile() {
           )}
           <p className="small muted">
             {t(
-              "Verification is free. Our team takes your original CNIC for safekeeping while you work through Kaam Connect. You can ask for it back at any time.",
+              "Verification is free. Our team takes your original CNIC for safekeeping while you work through Bharosa. You can ask for it back at any time.",
             )}
           </p>
         </div>
@@ -233,7 +233,7 @@ export default function WorkerProfile() {
           )}
           {meta?.supportPhone && (
             <p className="small muted">
-              {t("Kaam Connect helpline:")}{" "}
+              {t("Bharosa helpline:")}{" "}
               <a className="ltr" href={`tel:${meta.supportPhone}`}>
                 {meta.supportPhone}
               </a>

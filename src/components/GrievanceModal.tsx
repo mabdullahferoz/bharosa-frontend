@@ -46,7 +46,7 @@ export default function GrievanceModal({
         }}
       >
         <p className="small muted">
-          {t("This goes to the Kaam Connect team, not to the family. Our team reads every report and will contact you.")}
+          {t("This goes to the Bharosa team, not to the family. Our team reads every report and will contact you.")}
         </p>
         <div className="grid-2">
           <Field label={t("What is the problem?")}>
@@ -65,7 +65,7 @@ export default function GrievanceModal({
             {meta?.supportPhone && (
               <>
                 {" "}
-                {t("Kaam Connect helpline:")} <span className="ltr">{meta.supportPhone}</span>
+                {t("Bharosa helpline:")} <span className="ltr">{meta.supportPhone}</span>
               </>
             )}
           </span>

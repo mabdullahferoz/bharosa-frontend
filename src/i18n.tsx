@@ -5,7 +5,7 @@ import { useAuth } from "./auth";
 import { UR, UR_ENUM } from "./locales/ur";
 
 export type Lang = "en" | "ur";
-const LANG_KEY = "kaam.lang";
+const LANG_KEY = "bharosa.lang";
 
 // Module-level so plain helpers (formatters, labels) can translate without hooks.
 // The provider remounts the tree when the language changes, so everything re-renders.

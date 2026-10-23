@@ -1,4 +1,4 @@
-# SITE_ADDRESS: your domain (e.g. app.kaamconnect.pk) for automatic HTTPS via Let's Encrypt,
+# SITE_ADDRESS: your domain (e.g. app.bharosa.pk) for automatic HTTPS via Let's Encrypt,
 # or ":80" to serve plain HTTP behind another load balancer / for local testing.
 {$SITE_ADDRESS::80} {
 	encode zstd gzip

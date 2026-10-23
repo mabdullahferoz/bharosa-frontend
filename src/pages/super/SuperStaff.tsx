@@ -270,7 +270,7 @@ export default function SuperStaff() {
     <div className="stack">
       <PageHeader
         title="Staff"
-        subtitle="Who works for Kaam Connect, what each person is allowed to do, and how they used that power in the last 30 days."
+        subtitle="Who works for Bharosa, what each person is allowed to do, and how they used that power in the last 30 days."
         action={
           <button className="btn" disabled={!catalog.data} onClick={() => setDialog({ kind: "create" })}>
             + Add staff

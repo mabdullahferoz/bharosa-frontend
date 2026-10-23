@@ -1,6 +1,6 @@
 // Minimal service worker: caches the app shell so the PWA opens offline.
 // API calls (/api/*) always go to the network; they are never cached.
-const CACHE = "kaam-shell-v1";
+const CACHE = "bharosa-shell-v1";
 const SHELL = ["/", "/manifest.webmanifest", "/icon-192.png", "/icon-512.png"];
 
 self.addEventListener("install", (event) => {

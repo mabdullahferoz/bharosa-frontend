@@ -133,7 +133,7 @@ export default function MyWork() {
               ))}
               {meta?.supportPhone && (
                 <p className="small muted">
-                  {t("Problem with pay, hours or how you are treated? Call the Kaam Connect helpline:")}{" "}
+                  {t("Problem with pay, hours or how you are treated? Call the Bharosa helpline:")}{" "}
                   <a className="ltr" href={`tel:${meta.supportPhone}`}>
                     {meta.supportPhone}
                   </a>
