@@ -1,5 +1,5 @@
 import { createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from "react";
-import { BadgeCheck, IdCard, ShieldAlert, ShieldCheck } from "lucide-react";
+import { BadgeCheck, IdCard, ShieldAlert, ShieldCheck, Star, X } from "lucide-react";
 import type { Endorsement, Trust } from "./types";
 import { dateLocale, enumLabel, isUrdu, msg, t } from "./i18n";
 
@@ -211,8 +211,9 @@ export function Stars({ value }: { value: number | null }) {
   if (!value) return null;
   return (
     <span className="stars" aria-label={t("{n} out of 5", { n: value })}>
-      {"★★★★★".slice(0, Math.round(value))}
-      <span className="stars-off">{"★★★★★".slice(Math.round(value))}</span>
+      {[1, 2, 3, 4, 5].map((i) => (
+        <Star key={i} size={14} aria-hidden className={i <= Math.round(value) ? undefined : "stars-off"} fill="currentColor" strokeWidth={0} />
+      ))}
     </span>
   );
 }
@@ -335,7 +336,7 @@ export function Modal({ title, onClose, children }: { title: string; onClose: ()
         <div className="modal-head">
           <h2 dir="auto">{title}</h2>
           <button className="icon-btn" onClick={onClose} aria-label={t("Close")}>
-            ×
+            <X size={20} aria-hidden />
           </button>
         </div>
         {children}

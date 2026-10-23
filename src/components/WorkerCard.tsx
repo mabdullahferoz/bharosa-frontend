@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { MapPin } from "lucide-react";
 import type { PublicWorker } from "../types";
+import { t } from "../i18n";
 import { Avatar, categoryLabel, EndorsementStack, humanize, Money, TrustBadges } from "../ui";
 
 /** A worker as families see them: name, work, trust badges, who vouches, and the wage they ask. */
@@ -13,8 +14,8 @@ export default function WorkerCard({ worker, to }: { worker: PublicWorker; to?: 
         <div style={{ minWidth: 0 }}>
           <div className="name">{worker.name}</div>
           <div className="card-meta">
-            <span>{p?.skills.map(categoryLabel).join(" · ") || "No skills listed"}</span>
-            {p && <span>{p.experienceYears} yrs exp.</span>}
+            <span>{p?.skills.map(categoryLabel).join(" · ") || t("No skills listed")}</span>
+            {p && <span>{t("{n} yrs exp.", { n: p.experienceYears })}</span>}
           </div>
         </div>
       </div>

@@ -46,7 +46,7 @@ function EndorseModal({ e, onClose, onDone }: { e: Engagement; onClose: () => vo
             <div className="chips">
               {[1, 2, 3, 4, 5].map((n) => (
                 <button key={n} type="button" className="chip" aria-pressed={rating === n} onClick={() => setRating(n)}>
-                  {n} ★
+                  {n}/5
                 </button>
               ))}
             </div>

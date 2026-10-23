@@ -20,8 +20,8 @@
   --accent-soft: #fdf3dc;
   --info: #1d4ed8;
   --info-soft: #eef4ff;
-  --warn: #a15c07;
-  --warn-soft: #fef6e4;
+  --warn: #b4410c;
+  --warn-soft: #fff1e8;
   --danger: #b42318;
   --danger-soft: #fdeeec;
   --radius: 16px;
@@ -259,14 +259,14 @@ input[type="checkbox"], input[type="radio"] { width: auto; accent-color: var(--b
 
 .money { font-weight: 700; }
 .money-period { font-weight: 500; color: var(--muted); font-size: 0.86em; }
-.stars { color: #e09a0b; letter-spacing: 1px; }
+.stars { color: var(--ink); display: inline-flex; gap: 1px; vertical-align: -2px; }
 .stars-off { color: var(--line-2); }
 .avatar { display: inline-grid; place-items: center; border-radius: 999px; font-weight: 700; flex-shrink: 0; }
 
 /* ---- Callouts ---- */
 .callout { border-radius: var(--radius-sm); padding: 12px 14px; display: flex; gap: 10px; align-items: center; justify-content: space-between; flex-wrap: wrap; font-size: 0.92rem; border: 1px solid transparent; }
 .callout-error { background: var(--danger-soft); color: #8f1c13; border-color: #f6d4cf; }
-.callout-warn { background: var(--warn-soft); color: #7a4504; border-color: #f5e0b5; }
+.callout-warn { background: var(--warn-soft); color: #8a3108; border-color: #fbd9c3; }
 .callout-info { background: var(--info-soft); color: #1e3a8a; border-color: #d8e4fd; }
 .callout-ok { background: var(--brand-soft); color: var(--brand-dark); border-color: #c9e8d9; }
 .callout-accent { background: var(--accent-soft); color: #6b3d04; border-color: #f3dfb0; }

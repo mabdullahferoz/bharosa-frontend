@@ -54,6 +54,7 @@ export const UR: Record<string, string> = {
   "Example worker profile": "کارکن کی پروفائل کی مثال",
   "Shabana Bibi": "شبانہ بی بی",
   "{n} yrs exp.": "{n} سال کا تجربہ",
+  "No skills listed": "کوئی ہنر درج نہیں",
   "Lahore": "لاہور",
   "Honest and hardworking. Our children love her.": "ایمان دار اور محنتی۔ ہمارے بچے ان سے بہت پیار کرتے ہیں۔",
   "Family in DHA Phase 5": "ڈی ایچ اے فیز 5 کا ایک گھرانہ",
