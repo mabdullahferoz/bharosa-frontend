@@ -1,5 +1,5 @@
 // Tiny i18n layer. English text is the key, so a missing Urdu string falls back to English.
-// Run `npm run i18n:check -w web` to list strings passed to t() that have no Urdu translation.
+// Run `npm run i18n:check` to list strings passed to t() that have no Urdu translation.
 import { createContext, Fragment, useContext, useEffect, useState, type ReactNode } from "react";
 import { useAuth } from "./auth";
 import { UR, UR_ENUM } from "./locales/ur";

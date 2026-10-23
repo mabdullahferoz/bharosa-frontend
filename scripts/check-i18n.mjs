@@ -1,6 +1,6 @@
 // Lists t("...") strings in src/ that have no Urdu translation in src/locales/ur.ts,
 // and translations whose {placeholders} don't match the English text.
-// Run: npm run i18n:check -w web   (exits 1 if anything is missing or broken)
+// Run: npm run i18n:check   (exits 1 if anything is missing or broken)
 import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";

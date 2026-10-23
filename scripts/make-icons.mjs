@@ -1,5 +1,5 @@
 // Generates the PWA PNG icons (a white house with a check mark on brand green) without
-// any image libraries. Run: npm run icons -w web
+// any image libraries. Run: npm run icons
 import { writeFileSync } from "node:fs";
 import { deflateSync } from "node:zlib";
 

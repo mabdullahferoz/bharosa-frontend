@@ -1,6 +1,6 @@
 // Urdu translations. Keys are the English text used in t("...") calls.
 // Style: everyday Pakistani Urdu, short sentences, "آپ" form. Digits stay Western (0-9).
-// Keep {placeholders} identical to the English key; `npm run i18n:check -w web` verifies this.
+// Keep {placeholders} identical to the English key; `npm run i18n:check` verifies this.
 
 export const UR: Record<string, string> = {
   // ---- App shell ----
