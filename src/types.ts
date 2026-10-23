@@ -69,6 +69,8 @@ export interface Me {
   workerProfile: WorkerProfileData | null;
   householdProfile: { address: string | null; householdSize: number | null; notes: string | null; platformKnown: boolean } | null;
   trust?: Trust;
+  /** the worker's own endorsements (workers only) */
+  endorsements?: Endorsement[];
 }
 
 export interface Endorsement {
